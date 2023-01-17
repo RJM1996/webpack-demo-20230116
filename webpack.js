@@ -118,6 +118,8 @@ class Compilation {
       dependencies: [],
       _source: '', // 模块源码
     }
+
+    // 收集匹配该文件的 loader
     const loaders = []
     const { rules = [] } = this.options.module
     rules.forEach((rule) => {
@@ -127,7 +129,7 @@ class Compilation {
       }
     })
 
-    // 自右向左对模块源码进行转换
+    // 遍历该模块的loader数组, 自右向左对模块源码进行转换
     sourceCode = loaders.reduceRight((code, loader) => {
       return loader(code)
     }, sourceCode)
@@ -187,7 +189,7 @@ class Compilation {
     for (let entryName in entry) {
       const entryFilePath = path.posix.join(baseDir, entry[entryName])
       this.fileDependencies.push(entryFilePath)
-      // 得到入口模块的 module 对象, 里面保存着改模块的路径,依赖模块,源代码
+      // 得到入口模块的 module 对象, 里面保存着该模块的文件路径,依赖模块,源代码
       let entryModule = this.buildModule(entryName, entryFilePath)
       this.modules.push(entryModule)
       // 组装代码块 chunk (每个入口文件对应一个代码块chunk)

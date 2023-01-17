@@ -1,1 +1,1 @@
-module.exports = "不要秃头啊";
+module.exports = "秦始皇";
