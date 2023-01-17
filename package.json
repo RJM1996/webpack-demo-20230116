@@ -1,0 +1,22 @@
+{
+  "name": "webpack-demo-20230116",
+  "version": "1.0.0",
+  "description": "webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rugu",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/generator": "^7.20.7",
+    "@babel/parser": "^7.20.7",
+    "@babel/traverse": "^7.20.12",
+    "@babel/types": "^7.20.7",
+    "tapable": "^2.2.1",
+    "webpack": "^5.75.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.32.0"
+  }
+}
